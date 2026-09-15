@@ -7,7 +7,7 @@
 /* Dit verwijst naar het <html> element. De <html> krijgt een lichtgele achtergrond. */
 
 html {
-  background:#5A3E2B;
+  background:#121212;
 }
 
 /* BODY */
@@ -21,8 +21,9 @@ body {
   
   height: 100vh;
   
-  font-family: open sans;
-  color: #000000; /* de tekst kleur wordt in hex kleuren bepaald. */
+  font-family: 'Inter', sans-serif;
+  color: #FFFFFF;
+ /* de tekst kleur wordt in hex kleuren bepaald. */
 }
 
 /* ARTICLE */
@@ -43,11 +44,12 @@ article {
   min-width: 20em;
   
   border-radius: 1rem;
-  background: rgb(255 111 97);
-  background: linear-gradient(0deg, #708D23 40%, #DDE5B6 100%);
+  border: 2px solid #1DB954;
+  background: linear-gradient(0deg, #181818 40%, #121212 100%);
+  color: #FFFFFF;
 
-;
-  box-shadow: 0 0 20px 20px rgb(0 0 0 / .1);
+  box-shadow: 0 0 20px rgba(29, 185, 84, 0.4),  
+              0 0 40px rgba(0, 0, 0, 0.6); 
   
   transition: .25s;
 }
@@ -66,7 +68,7 @@ header {
 h1 {
   margin: 2rem 0 1rem 0; /* Margin is de ruimte om het element heen. Boven beginnen, met de klok mee */
   
-  color: rgb(0, 0, 0); /* De tekst kleur wordt in rgb() bepaald. */
+  color: #FFFFFF; /* De tekst kleur wordt in rgb() bepaald. */
 }
 
 /* Class */
@@ -74,7 +76,7 @@ h1 {
 /* Om een element met class te selecteren gebruik je een . in de selector */
 .slogan {
   font-size:1.25em;
-  color:#030711;
+  color:#B3B3B3;
 }
 
 /* BUTTON */
@@ -90,7 +92,7 @@ button {
   
   border: none;
   border-radius: 50%; /* De border-radius geeft de <button> ronde hoekjes. */
-  background: rgb(112 141 35);
+  background: #1DB954;
   
   scale:.8;
   
@@ -101,13 +103,14 @@ button {
 /* :hover is een 'Pseudo-class selector', daarmee worden interacties op het element gestyled. */
 button:hover {
   cursor: pointer;
-  background: darkgoldenrod;
+  background: #1ed760;
 }
 /* Met de 'Pseudo-class selector' :focus kan je bepalen hoe het element er uit moet zien als de tab toets op het toetsenbord wordt gebruikt. */
 button:focus {
   outline: none;
-  background: darkgoldenrod;
+  background: #1ed760;
 }
+
 
 /* In het <button> element staat een <svg> voor het icoon. */
 /* Met een spatie worden alle elementen geselecteerd die in een ander element staan. */
@@ -116,7 +119,8 @@ button svg {
   top: calc(1.25rem - 12px);
   left: calc(1.25rem - 12px);
   
-  stroke: #4e54c8;
+  stroke: #FFFFFF;
+
   
   transition: .25s;
   transition-delay: .25s; /* Een transitie op het <svg> element begin 0.25 seconde later. */
@@ -142,9 +146,10 @@ img {
   width: 10em;
   height: auto;
   
-  border: 5px solid #fff;
+  border: 5px solid #1DB954;
   border-radius: 10em;
-  box-shadow: 0 0 2px 2px rgb(0 0 0 /.2);
+  box-shadow: 0 0 20px rgba(29, 185, 84, 0.4),  
+              0 0 40px rgba(0, 0, 0, 0.6); 
   
   transition: 1s .15s; /* Transition Shorthand notation: Transities op het img element duren 1 seconde en beginnen 0.15 seconde later */
 }
@@ -154,56 +159,81 @@ img {
 /* De Description List element (DL) is een lijst met termen en beschrijvingen. */
 /* In deze DL staan 3 groepen met code skills, in CSS is de layout van de DT elementen met een Grid gepositioneerd.  */
 
-dl {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas:
-    "html-dd css-dd js-dd"
-    "html-dt css-dt js-dt"
-    ;
-  justify-items: center;
-  align-items: start;
-  
+
+
+.tracks-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+
   width: 100%;
-  margin-top: -3rem;
-  margin-bottom: 0;
-  padding: 5rem 0 3rem;
-  
-  text-align: center;
-  background: rgb(255 255 255);
+  margin-top: 32px;
+  padding: 0 24px;
 
-  dt {
-    margin-top: .25rem;
-    padding-top: .25rem;
-    
-    border-top: 1px solid rgb(0 0 0 / 0.3);
-    font-weight: bold;
-    
-    &:nth-of-type(1) {
-      grid-area: html-dt;
-    }
-    
-    &:nth-of-type(2) {
-      grid-area: css-dt;
-      translate:0 1rem;
-    }
-    
-    &:nth-of-type(3) {
-      grid-area: js-dt;
-    }
-  }
-
-  dd {
-    margin: 0;
-    padding-left: .3rem;
-    
-    transition: .25s .3s;
-    
-    &:nth-of-type(2) {
-      translate:0 1rem;
-    }
-  }
+  list-style: none;
 }
+
+.track {
+  background: #181818;
+  padding: 16px 12px;
+  border-radius: 16px;
+  text-align: center;
+  width: 30%;
+
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
+  transition: .3s;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.track-left {
+  transform: translateY(-12px);
+}
+
+.track-right {
+  transform: translateY(-12px);
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #FFFFFF;
+
+  text-align: center;
+}
+
+.badge-afrobeats {
+  background: #2C82C9;
+}
+
+.badge-afropiano {
+  background: #A259FF;
+}
+
+.badge-rnb {
+  background: #FF5E8A;
+}
+
+.track p {
+  margin: 0;
+  font-size: 16px;
+  color: #FFFFFF;
+
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+
 
 /* P */
 /* Hier krijgen alle <p> elementen een styling. */
@@ -219,7 +249,7 @@ article > p {
   margin-top: 0;
   padding: 3rem 2rem;
   
-  background: rgb(255 255 255 / 0.5);
+  /*background: rgb(255 255 255 / 0.5);*/
   border-radius: 0 0 1rem 1rem;
   text-align: center;
 }
