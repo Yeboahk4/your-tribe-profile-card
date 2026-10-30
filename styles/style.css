@@ -160,7 +160,7 @@ img {
 /* In deze DL staan 3 groepen met code skills, in CSS is de layout van de DT elementen met een Grid gepositioneerd.  */
 
 
-
+/* Hier geef ik mijn "tracks" een parent style en individuel child styles zodat ze hun eigen style hebben en netjes naast elkaar zichtbaar zijn*/
 .tracks-row {
   display: flex;
   justify-content: space-between;
@@ -211,7 +211,7 @@ img {
 
   text-align: center;
 }
-
+/* Hier geef ik elke badge een specifieke kleur*/
 .badge-afrobeats {
   background: #2C82C9;
 }
